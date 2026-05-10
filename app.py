@@ -46,3 +46,15 @@ if __name__ == '__main__':
     app.run(debug=True, port=3000)
 
 # add new api data
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo():
+    data = request.json
+
+    item = {
+        "itemName": data['itemName'],
+        "itemDescription": data['itemDescription']
+    }
+
+    collection.insert_one(item)
+
+    return jsonify({"message": "Saved"})
