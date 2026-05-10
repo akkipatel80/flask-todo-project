@@ -14,7 +14,7 @@ collection = db["users"]
 def index():
     return send_from_directory('public', 'index.html')
 
-# Handle form submit
+# Handle form submit api
 @app.route('/submit', methods=['POST'])
 def submit():
     try:
